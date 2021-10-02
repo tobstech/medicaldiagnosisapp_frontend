@@ -1,0 +1,42 @@
+<app-header></app-header>
+<section class="vh-100" style="background-color: #fff;">
+    <div class="container py-5 h-10">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">  
+              <h3 class="mb-2">Registered Patient List</h3>
+              <hr>
+              <table class="table table-stripped">
+                <thead>
+                    <tr class="bg-primary text-light" style="text-align: left">
+                        <td>Patient No.</td>
+                        <td>Fullname</td>
+                        <td>Age</td>
+                        <td>Phone Number</td>
+                        <td>Email</td>
+                        <td>Address</td>
+                        <td>Next of Kin Name</td>
+                        <td>Next of Kin Phone No</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let patient of patients" style="text-align: left">
+                        <td>{{patient.patientNo}}</td>
+                        <td>{{patient.firstname}} {{patient.lastname}}</td>
+                        <td>{{patient.age}}</td>
+                        <td>{{patient.phoneNumber}}</td>
+                        <td>{{patient.email}}</td>
+                        <td>{{patient.address}}</td>
+                        <td>{{patient.nextOfKinName}}</td>
+                        <td>{{patient.nextOfKinPhoneNumber}}</td>                 
+                    </tr>
+                </tbody>
+            </table>
+
+            
+           
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>

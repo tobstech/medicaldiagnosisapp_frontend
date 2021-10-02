@@ -1,0 +1,29 @@
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <h3 class="mb-5" style="color: #508bfc;">Medical Diagnosis App</h3>
+              <hr class="my-4">
+              <h3 class="mb-5">User Login</h3>
+              <form>
+               <!-- <div class="alert alert-danger" ng-hide="messageError == ''"><b>{{messageError}}</b></div> -->
+                <div class="form-outline mb-4">
+                  <input type="text" id="username" name="username" [(ngModel)] = "user.username" 
+                  placeholder="Username" class="form-control form-control-lg" required/>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="password" id="password" name="password" [(ngModel)] = "user.password" 
+                  placeholder="Password" class="form-control form-control-lg" required/>
+                </div>
+                <input class="btn btn-primary btn-lg btn-block" type="submit"  
+                name="submit" value="Login" (click) = "userLogin()" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

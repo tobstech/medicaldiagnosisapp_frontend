@@ -1,0 +1,62 @@
+<app-header></app-header>
+<section class="vh-100" style="background-color: #fff;">
+    <div class="container py-5 h-10">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">  
+                <h3 class="mb-2">Symptoms/Diagnosis Result Checker</h3><hr>
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-sm-12 col-xs-12">
+                        <input type="text" placeholder="Enter Patient Number" class="form-control"
+                        name="patientNo" [(ngModel)] = "patientNo">
+                    </div>
+                    <div class="col-lg-1 col-sm-12 col-xs-12">
+                        <button type="button" class="btn btn-primary" (click) = "findByPatientNo()">Verify</button>
+                    </div>
+                </div>
+                <h2 class="mt-2 mb-1 display-6" style="text-align: left" >Result</h2>
+              <hr>
+              <table class="table table-stripped">
+                <thead>
+                    <tr class="bg-primary text-light" style="text-align: left">
+                        <td>Patient No.</td>
+                        <td>Fullname</td>
+                        <td>Age</td>
+                        <td>Phone Number</td>
+                        <td>Email</td>     
+                        <td></td>                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let patient of patients" style="text-align: left">
+                        <td>{{patient.patientNo}}</td>
+                        <td>{{patient.firstname}} {{patient.lastname}}</td>
+                        <td>{{patient.age}}</td>
+                        <td>{{patient.phoneNumber}}</td>
+                        <td>{{patient.email}}</td>
+                        <td><button type="button" class="btn btn-success" (click) = "getSymptoms(patient)">View Symptoms List</button></td>      
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="mt-2 mb-1 display-6" style="text-align: left" >Check Symptoms</h2><hr>
+            <div class="row" style="text-align: left">
+                <div class="col-sm-3" *ngFor="let symptomEach of symptomsList">
+                    <input value="{{symptomEach.symptomId}}" name={{symptomEach.name}} (change)="checkCheckBoxvalue($event)"  type="checkbox" > {{symptomEach.name}}
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col-sm mt-2" style="text-align: left">
+                    <input class="btn btn-success btn-lg btn-block" type="submit"  
+                    name="submit" value="Get Diagnosis Result" (click) = "getDiagnosisResult()"                  
+                     />
+                </div>               
+                <div class="col-sm"></div>
+                <div class="col-sm"></div>
+            </div>   
+            
+           
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>

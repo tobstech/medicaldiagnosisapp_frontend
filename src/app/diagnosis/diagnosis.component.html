@@ -1,0 +1,93 @@
+<app-header></app-header>
+<section class="vh-100" style="background-color: #fff;">
+    <div class="container py-5 h-10">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">  
+                <h3 class="mb-2">View Patient Diagnosis Result</h3><hr>
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-sm-12 col-xs-12">
+                        <input type="text" placeholder="Enter Patient Number" class="form-control"
+                        name="patientNo" [(ngModel)] = "patientNo">
+                    </div>
+                    <div class="col-lg-1 col-sm-12 col-xs-12">
+                        <button type="button" class="btn btn-primary" (click) = "findByPatientNo()">Search</button>
+                    </div>
+                </div>
+                <h2 class="mt-2 mb-1 display-6" style="text-align: left" >Result</h2>
+              <hr>
+              <table class="table table-stripped">
+                <thead>
+                    <tr class="bg-primary text-light" style="text-align: left">
+                        <td>Patient No.</td>
+                        <td>Fullname</td>
+                        <td>Age</td>
+                        <td>Phone Number</td>
+                        <td>Email</td>     
+                        <td></td>                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let patient of patients" style="text-align: left">
+                        <td>{{patient.patientNo}}</td>
+                        <td>{{patient.firstname}} {{patient.lastname}}</td>
+                        <td>{{patient.age}}</td>
+                        <td>{{patient.phoneNumber}}</td>
+                        <td>{{patient.email}}</td>
+                        <td><button type="button" class="btn btn-success" (click) = "getDiagnosisResult(patient)">View Diagnosis Result</button></td>      
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="mt-2 mb-1 display-6" style="text-align: left" >Diagnosis Result Details</h2><hr>
+            <table class="table table-stripped">
+                <tr style="text-align: left">
+                    <th>Patient Number: </th><td> {{patientData.patientNo}}</td>
+                    <th>Patient Name:  </th><td>{{patientData.patientName}}</td>
+                    <th>Patient Age:  </th><td>{{patientData.patientAge}}</td>
+                    <th>Patient Gender:  </th><td>{{patientData.patientGender}}</td>
+                </tr>
+            </table>
+          
+            <table *ngFor = "let dr of diagnosisResults" style="text-align: left">
+                <div class="col-lg-12 col-md-12">
+                <div class="thumbnail card" style="background-color: #fff; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); text-align: left;">
+                    <div class="caption card-body p-lg-5 p-3">    
+                <tr style="text-align: left">
+                    <td colspan="4"><b>Diagnosis Reference: </b> {{dr.diagnosisReference}}</td>
+                    <td colspan="4"><b>Symptoms:</b> {{dr.symptomsName}}</td>
+                </tr>    
+                <hr>          
+                <table *ngFor = "let issueSpec of dr.diagnosisResultInfo" style="text-align: left">
+                <h4 class="mb-1 display-6">Issue Details</h4> 
+                <tr style="text-align: left">
+                    <td><b>Issue ID:</b> {{issueSpec.issue.issueId}}</td>
+                    <td><b>Issue Name:</b> {{issueSpec.issue.issueName}}</td>
+                    <td><b>Accuracy:</b> {{issueSpec.issue.accuracy}} </td>
+                    <td><b>ICD:</b> {{issueSpec.issue.icd}} </td>                   
+                </tr>
+                <tr style="text-align: left">
+                    <td><b>ICD Name:</b> {{issueSpec.issue.icdName}}</td>
+                    <td><b>Profession Name:</b> {{issueSpec.issue.professionName}} </td>
+                    <td><b>Ranking:</b> {{issueSpec.issue.ranking}} </td>
+                    <td><b>Result Valid or Invalid:</b> {{issueSpec.issue.resultValidInvalid}} </td>
+                </tr>
+
+                <h4 class="mb-1 display-6">Specialisation Details</h4>
+                <tr *ngFor = "let spec of issueSpec.specialization"  style="text-align: left">
+                    <td><b>Specialisation ID: </b> {{spec.specializationId}}</td>
+                    <td colspan="2"><b>Specialisation Name: </b> <td>{{spec.specializationName}}</td>
+                    <td><b>Specialist ID: </b> {{spec.specialistId}}</td>
+                </tr>     
+                <hr>          
+                </table>
+                
+                    </div>
+                </div><br>
+            </div>
+            </table>
+           
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>

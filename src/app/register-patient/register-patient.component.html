@@ -1,0 +1,85 @@
+<app-header></app-header>
+      <section class="vh-100" style="background-color: #fff;">
+        <div class="container py-5 h-10">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+              <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">  
+                  <h3 class="mb-2">Patient Registration</h3>
+                  <hr>
+                  <div class="alert">
+                    <span style="color: green; text-align: left; font-size: 24px ">{{message}}</span>
+               </div>
+                  <form>                  
+                   <div class="row mb-3">
+                    <div class="col-sm">
+                        <input type="text" id="patientNo" name="patientNo"  [(ngModel)] = "patient.patientNo" 
+                        placeholder="Patient Number" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="col-sm">
+                        <input type="text" id="firstname" name="firstname"  [(ngModel)] = "patient.firstname" 
+                        placeholder="First Name" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="col-sm">
+                        <input type="text" id="lastname" name="lastname"  [(ngModel)] = "patient.lastname" 
+                        placeholder="Last Name" class="form-control form-control-lg" required/>
+                    </div>
+                   </div>
+                   <div class="row mb-3">
+                    <div class="col-sm">
+                        <input type="number" id="age" name="age"  [(ngModel)] = "patient.age" 
+                        placeholder="Age" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="col-sm">
+                        <input type="text" id="phoneNumber" name="phoneNumber"  [(ngModel)] = "patient.phoneNumber" 
+                        placeholder="Phone Number" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="col-sm">
+                        <input type="email" id="email" name="email"  [(ngModel)] = "patient.email" 
+                        placeholder="Email" class="form-control form-control-lg" required/>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm">
+                      <select class="form-control form-control-lg" name="gender" id="gender" [(ngModel)] = "patient.gender"  required="">
+                        <option value="">=Select Gender=</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                    <div class="col-sm">
+                        <input type="text" id="address" name="address"  [(ngModel)] = "patient.address" 
+                        placeholder="Address" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="col-sm">
+                        <input type="text" id="nextOfKinName" name="nextOfKinName"  [(ngModel)] = "patient.nextOfKinName" 
+                        placeholder="Next Of Kin Name" class="form-control form-control-lg" required/>
+                    </div>                   
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm">
+                      <input type="text" id="nextOfKinPhoneNumber" name="nextOfKinPhoneNumber"  [(ngModel)] = "patient.nextOfKinPhoneNumber" 
+                      placeholder="Next Of Kin Phone Number" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="col-sm">
+                        <input type="text" id="nextOfKinAddress" name="nextOfKinAddress"  [(ngModel)] = "patient.nextOfKinAddress" 
+                        placeholder="Next Of Kin Address" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="col-sm">
+                        <input type="text" id="nextOfKinRelationship" name="nextOfKinRelationship"  [(ngModel)] = "patient.nextOfKinRelationship" 
+                        placeholder="Next Of Kin Relationship" class="form-control form-control-lg" required/>
+                    </div>
+                  </div>        
+                  <div class="row">                
+                    <div class="col-sm mt-2" style="text-align: left">
+                        <input class="btn btn-success btn-lg btn-block" type="submit"  
+                        name="submit" value="Save" (click) = "registerPatient()" />
+                    </div>               
+                    <div class="col-sm"></div>
+                    <div class="col-sm"></div>
+                  </div>
+                 </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
